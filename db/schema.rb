@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_15_164535) do
+ActiveRecord::Schema.define(version: 2019_07_23_022208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -186,6 +186,20 @@ ActiveRecord::Schema.define(version: 2019_07_15_164535) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "billing_details", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "stripe_id"
+    t.string "stripe_subscription_id"
+    t.string "card_last4"
+    t.string "card_exp_month"
+    t.string "card_exp_year"
+    t.string "card_type"
+    t.datetime "current_period_ends_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_billing_details_on_user_id", unique: true
+  end
+
   create_table "blocks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -243,6 +257,13 @@ ActiveRecord::Schema.define(version: 2019_07_15_164535) do
     t.datetime "updated_at", null: false
     t.boolean "whole_word", default: true, null: false
     t.index ["account_id"], name: "index_custom_filters_on_account_id"
+  end
+
+  create_table "domain_allows", force: :cascade do |t|
+    t.string "domain", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["domain"], name: "index_domain_allows_on_domain", unique: true
   end
 
   create_table "domain_blocks", force: :cascade do |t|

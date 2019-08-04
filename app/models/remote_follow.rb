@@ -23,7 +23,6 @@ class RemoteFollow
   end
 
   def interact_address_for(status)
-    addressable_template.expand(uri: ActivityPub::TagManager.instance.uri_for(status)).to_s
   end
 
   private

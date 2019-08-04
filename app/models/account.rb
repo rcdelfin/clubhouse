@@ -68,8 +68,6 @@ class Account < ApplicationRecord
     trusted: 1,
   }.freeze
 
-  enum protocol: [:ostatus, :activitypub]
-
   validates :username, presence: true
 
   # Remote user validations
@@ -399,8 +397,6 @@ class Account < ApplicationRecord
     end
 
     def inboxes
-      urls = reorder(nil).where(protocol: :activitypub).pluck(Arel.sql("distinct coalesce(nullif(accounts.shared_inbox_url, ''), accounts.inbox_url)"))
-      DeliveryFailureTracker.filter(urls)
     end
 
     def search_for(terms, limit = 10, offset = 0)

@@ -142,9 +142,7 @@ module SignatureVerification
 
     if key_id.start_with?('acct:')
       stoplight_wrap_request { ResolveAccountService.new.call(key_id.gsub(/\Aacct:/, '')) }
-    elsif !ActivityPub::TagManager.instance.local_uri?(key_id)
-      account   = ActivityPub::TagManager.instance.uri_to_resource(key_id, Account)
-      account ||= stoplight_wrap_request { ActivityPub::FetchRemoteKeyService.new.call(key_id, id: false) }
+    else
       account
     end
   end
@@ -159,7 +157,6 @@ module SignatureVerification
   end
 
   def account_refresh_key(account)
-    return if account.local? || !account.activitypub?
-    ActivityPub::FetchRemoteAccountService.new.call(account.uri, only_key: true)
+    return if account.local?
   end
 end

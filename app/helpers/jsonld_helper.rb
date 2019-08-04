@@ -42,7 +42,7 @@ module JsonLdHelper
   end
 
   def supported_context?(json)
-    !json.nil? && equals_or_includes?(json['@context'], ActivityPub::TagManager::CONTEXT)
+    !json.nil? && equals_or_includes?(json['@context'])
   end
 
   def unsupported_uri_scheme?(uri)

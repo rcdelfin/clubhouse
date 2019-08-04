@@ -22,11 +22,6 @@ class FollowerAccountsController < ApplicationController
         raise Mastodon::NotPermittedError if page_requested? && @account.user_hides_network?
 
         expires_in(page_requested? ? 0 : 3.minutes, public: public_fetch_mode?)
-
-        render json: collection_presenter,
-               serializer: ActivityPub::CollectionSerializer,
-               adapter: ActivityPub::Adapter,
-               content_type: 'application/activity+json'
       end
     end
   end
@@ -45,24 +40,4 @@ class FollowerAccountsController < ApplicationController
     account_followers_url(@account, page: page) unless page.nil?
   end
 
-  def collection_presenter
-    if page_requested?
-      ActivityPub::CollectionPresenter.new(
-        id: account_followers_url(@account, page: params.fetch(:page, 1)),
-        type: :ordered,
-        size: @account.followers_count,
-        items: follows.map { |f| ActivityPub::TagManager.instance.uri_for(f.account) },
-        part_of: account_followers_url(@account),
-        next: page_url(follows.next_page),
-        prev: page_url(follows.prev_page)
-      )
-    else
-      ActivityPub::CollectionPresenter.new(
-        id: account_followers_url(@account),
-        type: :ordered,
-        size: @account.followers_count,
-        first: page_url(1)
-      )
-    end
-  end
 end

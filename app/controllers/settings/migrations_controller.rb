@@ -14,7 +14,6 @@ class Settings::MigrationsController < Settings::BaseController
 
     if @migration.valid? && migration_account_changed?
       current_account.update!(moved_to_account: @migration.account)
-      ActivityPub::UpdateDistributionWorker.perform_async(current_account.id)
       redirect_to settings_migration_path, notice: I18n.t('migrations.updated_msg')
     else
       render :show

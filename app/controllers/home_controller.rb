@@ -20,18 +20,8 @@ class HomeController < ApplicationController
       case matches[1]
       when 'statuses'
         status = Status.find_by(id: matches[2])
-
-        if status&.distributable?
-          redirect_to(ActivityPub::TagManager.instance.url_for(status))
-          return
-        end
       when 'accounts'
         account = Account.find_by(id: matches[2])
-
-        if account
-          redirect_to(ActivityPub::TagManager.instance.url_for(account))
-          return
-        end
       end
     end
 

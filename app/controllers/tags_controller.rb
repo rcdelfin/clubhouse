@@ -38,7 +38,6 @@ class TagsController < ApplicationController
         @statuses = HashtagQueryService.new.call(@tag, params.slice(:any, :all, :none), current_account, params[:local]).paginate_by_max_id(PAGE_SIZE, params[:max_id])
         @statuses = cache_collection(@statuses, Status)
 
-        render json: collection_presenter, serializer: ActivityPub::CollectionSerializer, adapter: ActivityPub::Adapter, content_type: 'application/activity+json'
       end
     end
   end
@@ -57,12 +56,4 @@ class TagsController < ApplicationController
     @instance_presenter = InstancePresenter.new
   end
 
-  def collection_presenter
-    ActivityPub::CollectionPresenter.new(
-      id: tag_url(@tag, params.slice(:any, :all, :none)),
-      type: :ordered,
-      size: @tag.statuses.count,
-      items: @statuses.map { |s| ActivityPub::TagManager.instance.uri_for(s) }
-    )
-  end
 end

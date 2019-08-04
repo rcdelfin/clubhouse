@@ -36,8 +36,6 @@ class Report < ApplicationRecord
     false # Force uri_for to use uri attribute
   end
 
-  before_validation :set_uri, only: :create
-
   def object_type
     :flag
   end
@@ -100,7 +98,4 @@ class Report < ApplicationRecord
     Admin::ActionLog.from("(#{sql}) AS admin_action_logs")
   end
 
-  def set_uri
-    self.uri = ActivityPub::TagManager.instance.generate_uri_for(self) if uri.nil? && account.local?
-  end
 end

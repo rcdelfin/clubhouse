@@ -88,8 +88,6 @@ class SpamCheck
     return text.gsub(Account::MENTION_RE, '') if @status.local?
 
     Nokogiri::HTML.fragment(text).tap do |html|
-      mentions = @status.mentions.map { |mention| ActivityPub::TagManager.instance.url_for(mention.account) }
-
       html.traverse do |element|
         element.unlink if element.name == 'a' && mentions.include?(element['href'])
       end

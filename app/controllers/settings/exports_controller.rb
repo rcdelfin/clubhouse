@@ -26,8 +26,6 @@ class Settings::ExportsController < Settings::BaseController
       end
     end
 
-    BackupWorker.perform_async(backup.id)
-
     redirect_to settings_export_path
   end
 

@@ -132,7 +132,6 @@ class Request
     when :acct
       @account.to_webfinger_s
     when :uri
-      [ActivityPub::TagManager.instance.uri_for(@account), '#main-key'].join
     end
   end
 

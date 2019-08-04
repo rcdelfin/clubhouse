@@ -5,7 +5,6 @@ class Api::V1::PollsController < Api::BaseController
 
   before_action -> { authorize_if_got_token! :read, :'read:statuses' }, only: :show
   before_action :set_poll
-  before_action :refresh_poll
 
   respond_to :json
 
@@ -20,9 +19,5 @@ class Api::V1::PollsController < Api::BaseController
     authorize @poll.status, :show?
   rescue Mastodon::NotPermittedError
     raise ActiveRecord::RecordNotFound
-  end
-
-  def refresh_poll
-    ActivityPub::FetchRemotePollService.new.call(@poll, current_account) if user_signed_in? && @poll.possibly_stale?
   end
 end

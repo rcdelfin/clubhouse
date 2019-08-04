@@ -13,17 +13,6 @@ class BlockService < BaseService
     block = account.block!(target_account)
 
     BlockWorker.perform_async(account.id, target_account.id)
-    create_notification(block) if !target_account.local? && target_account.activitypub?
     block
-  end
-
-  private
-
-  def create_notification(block)
-    ActivityPub::DeliveryWorker.perform_async(build_json(block), block.account_id, block.target_account.inbox_url)
-  end
-
-  def build_json(block)
-    Oj.dump(serialize_payload(block, ActivityPub::BlockSerializer))
   end
 end

@@ -29,7 +29,6 @@ const messages = defineMessages({
   unmuteConversation: { id: 'status.unmute_conversation', defaultMessage: 'Unmute conversation' },
   pin: { id: 'status.pin', defaultMessage: 'Pin on profile' },
   unpin: { id: 'status.unpin', defaultMessage: 'Unpin from profile' },
-  embed: { id: 'status.embed', defaultMessage: 'Embed' },
   admin_account: { id: 'status.admin_account', defaultMessage: 'Open moderation interface for @{name}' },
   admin_status: { id: 'status.admin_status', defaultMessage: 'Open this status in the moderation interface' },
   copy: { id: 'status.copy', defaultMessage: 'Copy link to status' },
@@ -63,7 +62,6 @@ class StatusActionBar extends ImmutablePureComponent {
     onMute: PropTypes.func,
     onBlock: PropTypes.func,
     onReport: PropTypes.func,
-    onEmbed: PropTypes.func,
     onMuteConversation: PropTypes.func,
     onPin: PropTypes.func,
     withDismiss: PropTypes.bool,
@@ -146,10 +144,6 @@ class StatusActionBar extends ImmutablePureComponent {
     this.context.router.history.push(`/statuses/${this.props.status.get('id')}`);
   }
 
-  handleEmbed = () => {
-    this.props.onEmbed(this.props.status);
-  }
-
   handleReport = () => {
     this.props.onReport(this.props.status);
   }
@@ -193,7 +187,6 @@ class StatusActionBar extends ImmutablePureComponent {
 
     if (publicStatus) {
       menu.push({ text: intl.formatMessage(messages.copy), action: this.handleCopy });
-      menu.push({ text: intl.formatMessage(messages.embed), action: this.handleEmbed });
     }
 
     menu.push(null);

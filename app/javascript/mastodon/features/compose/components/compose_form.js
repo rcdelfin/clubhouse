@@ -12,6 +12,7 @@ import { defineMessages, injectIntl } from 'react-intl';
 import PrivacyDropdownContainer from '../containers/privacy_dropdown_container';
 import EmojiPickerDropdown from '../containers/emoji_picker_dropdown_container';
 import PollFormContainer from '../containers/poll_form_container';
+import VideoChatContainer from '../containers/video_chat_container';
 import UploadFormContainer from '../containers/upload_form_container';
 import WarningContainer from '../containers/warning_container';
 import { isMobile } from '../../../is_mobile';
@@ -75,6 +76,26 @@ class ComposeForm extends ImmutablePureComponent {
       this.handleSubmit();
     }
   }
+
+  addVideoLink = () => {
+
+    let { text } = this.props 
+    text = text ? text + '\n\nClick to video chat ➡️ https://meet.jit.si/clubhouse-' + this.makeRandomString(12) : text + 'Click to video chat ➡️ https://meet.jit.si/clubhouse-' + this.makeRandomString(12)
+
+    this.props.onChange(text);
+    
+  }
+
+  makeRandomString = (length) => {
+     let result           = '';
+     let characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+     let charactersLength = characters.length;
+     for ( var i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+     }
+     return result;
+  }
+
 
   handleSubmit = () => {
     if (this.props.text !== this.autosuggestTextarea.textarea.value) {
@@ -237,9 +258,10 @@ class ComposeForm extends ImmutablePureComponent {
 
         <div className='compose-form__buttons-wrapper'>
           <div className='compose-form__buttons'>
+            <PrivacyDropdownContainer />
             <UploadButtonContainer />
             <PollButtonContainer />
-            <PrivacyDropdownContainer />
+            <VideoChatContainer onClick={this.addVideoLink} />
           </div>
           <div className='character-counter__wrapper'><CharacterCounter max={500} text={text} /></div>
         </div>

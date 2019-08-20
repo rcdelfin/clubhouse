@@ -206,9 +206,9 @@
   font-size: 12px;
   line-height: 12px;
   font-weight: 500;
-  color: $ui-secondary-color;
-  background-color: rgba($ui-secondary-color, 0.1);
-  border: 1px solid rgba($ui-secondary-color, 0.5);
+  color: #fff;
+  background-color: #009688;
+  border: 1px solid #009688;
 
   &.moderator {
     color: $success-green;

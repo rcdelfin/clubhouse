@@ -105,7 +105,7 @@
 .box-widget {
   padding: 20px;
   border-radius: 4px;
-  background: $ui-base-color;
+  background: rgba(34,204,223,.2); //$ui-base-color;
   box-shadow: 0 0 15px rgba($base-shadow-color, 0.2);
 }
 

@@ -3,10 +3,11 @@
 
 - content_for :content do
   .container-alt
-    .logo-container
-      %h1
-        = link_to root_path do
-          = svg_logo_full
+    .logo-container.form-container
+      %h1 
+        = link_to root_url, class: 'brand' do 
+          %span.brand__name.highlight clubhouse
+      %span.brand__tagline=t 'about.tagline'
 
     .form-container
       = render 'flashes'

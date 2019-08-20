@@ -258,10 +258,10 @@ class ComposeForm extends ImmutablePureComponent {
 
         <div className='compose-form__buttons-wrapper'>
           <div className='compose-form__buttons'>
-            <PrivacyDropdownContainer />
+            <VideoChatContainer onClick={this.addVideoLink} />
             <UploadButtonContainer />
             <PollButtonContainer />
-            <VideoChatContainer onClick={this.addVideoLink} />
+            <PrivacyDropdownContainer />
           </div>
           <div className='character-counter__wrapper'><CharacterCounter max={500} text={text} /></div>
         </div>

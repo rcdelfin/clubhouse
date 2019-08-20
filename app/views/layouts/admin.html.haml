@@ -5,8 +5,9 @@
   .admin-wrapper
     .sidebar-wrapper
       .sidebar
-        = link_to root_path do
-          = image_pack_tag 'logo.svg', class: 'logo', alt: 'Mastodon'
+        %h1
+          = link_to root_url, class: 'brand' do
+            %span.highlight clubhouse
 
         = render_navigation
     .content-wrapper

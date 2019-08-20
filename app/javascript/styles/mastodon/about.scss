@@ -839,18 +839,26 @@ $small-breakpoint: 960px;
   text-decoration: none;
   
   h1 {
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: -1px;
+    font-size: 32px;
+    margin: 0;
+    letter-spacing: -.5px;
+    display: inline-block;
+    font-weight: 900;
+    color: rgba(0,0,0,.9);
   }
 }
 
 .brand__tagline {
-  display: block;
+/*  display: block;
   color: $ui-primary-color;
   text-decoration: none;
   font-size: 14px;
-  margin-top: 8px;
+  margin-top: 8px;*/
+  font-weight: 300;
+  font-size: 18px;
+  margin-left: 8px;
+  color: rgba(0,0,0,.7);
+
 
   @media screen and (max-width: $no-gap-breakpoint) {
     position: static;

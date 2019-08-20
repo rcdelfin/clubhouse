@@ -8,7 +8,7 @@
   border: 10px none;
   border-radius: 4px;
   box-sizing: border-box;
-  color: $primary-text-color;
+  color: $white; //$primary-text-color;
   cursor: pointer;
   display: inline-block;
   font-family: inherit;
@@ -160,12 +160,12 @@
   }
 
   &.inverted {
-    color: $lighter-text-color;
+    color: $black; // $lighter-text-color;
 
     &:hover,
     &:active,
     &:focus {
-      color: darken($lighter-text-color, 7%);
+      color: $black; // darken($lighter-text-color, 7%);
     }
 
     &.disabled {
@@ -173,7 +173,7 @@
     }
 
     &.active {
-      color: $highlight-text-color;
+      color: $black; // $highlight-text-color;
 
       &.disabled {
         color: lighten($highlight-text-color, 13%);
@@ -195,12 +195,11 @@
 }
 
 .text-icon-button {
-  color: $lighter-text-color;
+  color: $black; // $lighter-text-color;
   border: 0;
   background: transparent;
   cursor: pointer;
-  font-weight: 600;
-  font-size: 11px;
+  font-size: 13px;
   padding: 0 3px;
   line-height: 27px;
   outline: 0;
@@ -209,17 +208,17 @@
   &:hover,
   &:active,
   &:focus {
-    color: darken($lighter-text-color, 7%);
+    color: $black; // darken($lighter-text-color, 7%);
     transition: color 200ms ease-out;
   }
 
   &.disabled {
-    color: lighten($lighter-text-color, 20%);
+    color: $black; // lighten($lighter-text-color, 20%);
     cursor: default;
   }
 
   &.active {
-    color: $highlight-text-color;
+    color: $black; // $highlight-text-color;
   }
 
   &::-moz-focus-inner {
@@ -568,15 +567,21 @@
   }
 
   .compose-form__buttons-wrapper {
+    position: relative;
     padding: 10px;
-    background: darken($simple-background-color, 8%);
+    background: $white; // darken($simple-background-color, 8%);
     border-radius: 0 0 4px 4px;
     display: flex;
     justify-content: space-between;
     flex: 0 0 auto;
 
     .compose-form__buttons {
-      display: flex;
+
+      &:after {
+        clear: both;
+        display: table;
+        content: " ";
+      }
 
       .compose-form__upload-button-icon {
         line-height: 27px;
@@ -595,21 +600,29 @@
       }
     }
 
+    .privacy-dropdown__value {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+    }
+
     .icon-button {
       box-sizing: content-box;
       padding: 0 3px;
+      vertical-align: middle;
     }
 
     .character-counter__wrapper {
-      align-self: center;
-      margin-right: 4px;
+      align-self: flex-end;
+      margin-right: 36px;
+      margin-bottom: 4px;
 
       .character-counter {
         cursor: default;
         font-family: $font-sans-serif, sans-serif;
         font-size: 14px;
         font-weight: 600;
-        color: $lighter-text-color;
+        color: $black; // $lighter-text-color;
 
         &.character-counter--over {
           color: $warning-red;
@@ -697,7 +710,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   padding-top: 2px;
-  color: $primary-text-color;
+  color: $black; // $primary-text-color;
 
   &:focus {
     outline: 0;
@@ -727,8 +740,8 @@
   }
 
   a {
-    color: $secondary-text-color;
-    text-decoration: none;
+    color: $black; // $secondary-text-color;
+    // text-decoration: none;
 
     &:hover {
       text-decoration: underline;
@@ -909,7 +922,7 @@
       color: $inverted-text-color;
 
       a {
-        color: $highlight-text-color;
+        color: $black; // $highlight-text-color;
       }
 
       a.status__content__spoiler-link {
@@ -1118,7 +1131,7 @@
 }
 
 .reply-indicator__content {
-  color: $inverted-text-color;
+  color: $black; // $inverted-text-color;
   font-size: 14px;
 
   a {
@@ -1580,7 +1593,7 @@ a.account__display-name {
   color: $darker-text-color;
 
   strong {
-    color: $secondary-text-color;
+    color: $black; // $secondary-text-color;
   }
 
   a {
@@ -1863,7 +1876,7 @@ a.account__display-name {
   flex-direction: column;
 
   > .scrollable {
-    background: $ui-base-color;
+    // background: $ui-base-color;
   }
 }
 
@@ -2201,7 +2214,7 @@ a.account__display-name {
 }
 
 .column-link--transparent .icon-with-badge__badge {
-  border-color: darken($ui-base-color, 8%);
+  border-color: $black; // darken($ui-base-color, 8%);
 }
 
 .compose-panel {
@@ -2539,7 +2552,8 @@ a.account__display-name {
   color: $primary-text-color;
   display: block;
   font-size: 16px;
-  padding: 15px;
+  padding: 4px 16px;
+  margin-bottom: 24px;
   text-decoration: none;
 
   &:hover,
@@ -2554,7 +2568,7 @@ a.account__display-name {
 
   &--transparent {
     background: transparent;
-    color: $ui-secondary-color;
+    color: $black; //$ui-secondary-color;
 
     &:hover,
     &:focus,
@@ -2564,7 +2578,11 @@ a.account__display-name {
     }
 
     &.active {
-      color: $ui-highlight-color;
+      // color: $ui-highlight-color;
+      background: #ffeb3b;
+      display: inline-block;
+      margin-right: 8px;
+      border-radius: 21px;
     }
   }
 }
@@ -2900,6 +2918,7 @@ a.status-card {
   .status-card__content {
     padding: 8px;
     padding-top: 10px;
+    background: $white;
   }
 
   .status-card__title {
@@ -4438,12 +4457,12 @@ a.status-card.compact:hover {
   overflow-x: hidden;
 
   .status__content a {
-    color: $highlight-text-color;
+    color: $black; // $highlight-text-color;
   }
 
   .status__content,
   .status__content p {
-    color: $inverted-text-color;
+    color: $black; // $inverted-text-color;
   }
 
   @media screen and (max-width: 480px) {
@@ -5231,7 +5250,7 @@ a.status-card.compact:hover {
     position: relative;
 
     &.active {
-      color: $secondary-text-color;
+      color: $black; //$secondary-text-color;
 
       &::before,
       &::after {

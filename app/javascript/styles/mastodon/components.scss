@@ -614,8 +614,8 @@
 
     .character-counter__wrapper {
       align-self: flex-end;
-      margin-right: 36px;
-      margin-bottom: 4px;
+      margin-right: 28px;
+      margin-bottom: 2px;
 
       .character-counter {
         cursor: default;
@@ -3062,7 +3062,7 @@ a.status-card.compact:hover {
     padding: 15px 0 15px 15px;
     color: inherit;
     background: transparent;
-    font: inherit;
+    /*font: inherit;*/
     text-align: left;
     text-overflow: ellipsis;
     overflow: hidden;

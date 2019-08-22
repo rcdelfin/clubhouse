@@ -2,9 +2,9 @@
   = javascript_pack_tag 'public', integrity: true, crossorigin: 'anonymous'
 
 - content_for :content do
-  .public-layout
+  .yellow-public-layout
     - unless @hide_navbar
-      .container
+      .public-container
         %nav.header
           .nav-left
             = link_to root_url, class: 'brand' do
@@ -21,16 +21,16 @@
               = link_to t('auth.login'), new_user_session_path, class: 'webapp-btn nav-link nav-button'
               = link_to t('auth.register'), available_sign_up_path, class: 'webapp-btn nav-link nav-button'
 
-    .container= yield
+    .public-container= yield
 
-    .container
-      .footer
-        .grid
-          .column-4
-            = link_to svg_logo, root_url, class: 'brand'
-            %ul
-              %li= link_to t('about.about_this ' + site_hostname), about_more_path
-              %li= link_to t('about.terms'), terms_path
-              %li= link_to t('about.privacy_policy'), terms_path
+    / .container
+    /   .footer
+    /     .grid
+    /       .column-4
+    /         = link_to svg_logo, root_url, class: 'brand'
+    /         %ul
+    /           %li= link_to t('about.about_this ' + site_hostname), about_more_path
+    /           %li= link_to t('about.terms'), terms_path
+    /           %li= link_to t('about.privacy_policy'), terms_path
 
 = render template: 'layouts/application'

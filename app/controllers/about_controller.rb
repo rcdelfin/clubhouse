@@ -3,11 +3,13 @@
 class AboutController < ApplicationController
   layout 'public'
 
-  before_action :set_body_classes, only: :show
+  before_action :set_body_classes, only: [:show, :success]
   before_action :set_instance_presenter
   before_action :set_expires_in
 
   skip_before_action :require_functional!, only: [:more, :terms]
+
+  def success; end
 
   def show; end
 

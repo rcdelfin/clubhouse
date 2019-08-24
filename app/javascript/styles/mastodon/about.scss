@@ -871,7 +871,6 @@ body {
   }
 }
 
-
 .yellow-public-layout {
   /*html, body {
     margin: 0;
@@ -975,7 +974,7 @@ body {
 
   .btn {  
       height: 39px;
-    background: #22CCDF;
+      background: #22CCDF;
       border: 1px solid #22CCDF;
       color: #fff;
       font-size: 18px;
@@ -983,6 +982,7 @@ body {
       border-radius: 4px;
       font-weight: 500;
       transition: all 100ms ease;
+      -webkit-appearance: none;
       &:active, &:focus {
         box-shadow: 0 0 0 5px rgba(0,0,0,.1);
         outline: none;
@@ -1097,6 +1097,7 @@ body {
         .form-group {
           input {
               width: 210px;
+              max-width: 100%;
           }
         }
         @media (max-width: 960px) {
@@ -1195,7 +1196,7 @@ body {
         }
         .btn {
           opacity: .5;
-            cursor: not-allowed;
+          cursor: not-allowed;
         }
       }
     }

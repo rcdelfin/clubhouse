@@ -6,6 +6,13 @@
   @return '%23' + unquote($color);
 }
 
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
   font-family: $font-sans-serif, sans-serif;
   background: darken($ui-base-color, 7%);
@@ -127,10 +134,17 @@ body {
   }
 }
 
+textarea,
+input[type="text"],
+input[type="button"],
+input[type="submit"] {
+     -webkit-appearance: none;
+     border-radius: 3px;
+}
+
 button {
   font-family: inherit;
   cursor: pointer;
-
   &:focus {
     outline: none;
   }

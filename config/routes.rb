@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get 'custom.css', to: 'custom_css#show', as: :custom_css
 
   resource :instance_actor, path: 'actor', only: [:show] do
-    resource :inbox, only: [:create], module: :activitypub
+    # resource :inbox, only: [:create], module: :activitypub
   end
 
   devise_scope :user do
@@ -61,7 +61,7 @@ Rails.application.routes.draw do
         get :embed
       end
 
-      resources :replies, only: [:index], module: :activitypub
+      # resources :replies, only: [:index], module: :activitypub
     end
 
     resources :followers, only: [:index], controller: :follower_accounts
@@ -69,12 +69,12 @@ Rails.application.routes.draw do
     resource :follow, only: [:create], controller: :account_follow
     resource :unfollow, only: [:create], controller: :account_unfollow
 
-    resource :outbox, only: [:show], module: :activitypub
-    resource :inbox, only: [:create], module: :activitypub
-    resources :collections, only: [:show], module: :activitypub
+    # resource :outbox, only: [:show], module: :activitypub
+    # resource :inbox, only: [:create], module: :activitypub
+    # resources :collections, only: [:show], module: :activitypub
   end
 
-  resource :inbox, only: [:create], module: :activitypub
+  # resource :inbox, only: [:create], module: :activitypub
 
   get '/@:username', to: 'accounts#show', as: :short_account
   get '/@:username/with_replies', to: 'accounts#show', as: :short_account_with_replies

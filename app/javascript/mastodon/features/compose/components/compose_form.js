@@ -77,7 +77,7 @@ class ComposeForm extends ImmutablePureComponent {
     }
   }
 
-  addVideoLink = () => {
+  addVideoLink = (e) => {
 
     let { text } = this.props 
     text = text ? text + '\n\nClick to video chat ➡️ https://meet.jit.si/clubhouse-' + this.makeRandomString(12) : text + 'Click to video chat ➡️ https://meet.jit.si/clubhouse-' + this.makeRandomString(12)
@@ -258,10 +258,10 @@ class ComposeForm extends ImmutablePureComponent {
 
         <div className='compose-form__buttons-wrapper'>
           <div className='compose-form__buttons'>
-            <VideoChatContainer onClick={this.addVideoLink} />
             <UploadButtonContainer />
             <PollButtonContainer />
-            <PrivacyDropdownContainer />
+            <div onClick={this.addVideoLink}><VideoChatContainer /></div>
+            {/*<PrivacyDropdownContainer />*/}
           </div>
           <div className='character-counter__wrapper'><CharacterCounter max={500} text={text} /></div>
         </div>

@@ -167,7 +167,7 @@ class ColumnsArea extends ImmutablePureComponent {
     const columnIndex = getIndex(this.context.router.history.location.pathname);
 
     if (singleColumn) {
-      const floatingActionButton = shouldHideFAB(this.context.router.history.location.pathname) ? null : <Link key='floating-action-button' to='/statuses/new' className='floating-action-button' aria-label={intl.formatMessage(messages.publish)}><Icon id='pencil' /></Link>;
+      const floatingActionButton = shouldHideFAB(this.context.router.history.location.pathname) ? null : <Link key='floating-action-button' to='/statuses/new' className='floating-action-button' aria-label={intl.formatMessage(messages.publish)}><Icon id='pencil' /> Toot</Link>;
 
       const content = columnIndex !== -1 ? (
         <ReactSwipeableViews key='content' index={columnIndex} onChangeIndex={this.handleSwipe} onTransitionEnd={this.handleAnimationEnd} animateTransitions={shouldAnimate} springConfig={{ duration: '400ms', delay: '0s', easeFunction: 'ease' }} style={{ height: '100%' }}>
@@ -179,15 +179,17 @@ class ColumnsArea extends ImmutablePureComponent {
 
       return (
         <div className='columns-area__panels'>
-          <div className='columns-area__panels__pane columns-area__panels__pane--compositional'>
-            <div className='columns-area__panels__pane__inner'>
-              <ComposePanel />
+          <div className='columns-area__visible-panels'>
+            <div className='columns-area__panels__pane columns-area__panels__pane--compositional'>
+              <div className='columns-area__panels__pane__inner'>
+                <ComposePanel />
+              </div>
             </div>
-          </div>
 
-          <div className='columns-area__panels__main'>
-            <TabsBar key='tabs' />
-            {content}
+            <div className='columns-area__panels__main'>
+              <TabsBar key='tabs' />
+              {content}
+            </div>
           </div>
 
           <div className='columns-area__panels__pane columns-area__panels__pane--start columns-area__panels__pane--navigational'>

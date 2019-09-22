@@ -33,17 +33,17 @@ class ActionBar extends React.PureComponent {
 
     menu.push({ text: intl.formatMessage(messages.edit_profile), href: '/settings/profile' });
     menu.push({ text: intl.formatMessage(messages.preferences), href: '/settings/preferences' });
-    menu.push({ text: intl.formatMessage(messages.pins), to: '/pinned' });
+    // menu.push({ text: intl.formatMessage(messages.spins), to: '/pinned' });
     menu.push(null);
-    menu.push({ text: intl.formatMessage(messages.follow_requests), to: '/follow_requests' });
-    menu.push({ text: intl.formatMessage(messages.favourites), to: '/favourites' });
-    menu.push({ text: intl.formatMessage(messages.lists), to: '/lists' });
-    menu.push(null);
-    menu.push({ text: intl.formatMessage(messages.mutes), to: '/mutes' });
-    menu.push({ text: intl.formatMessage(messages.blocks), to: '/blocks' });
-    menu.push({ text: intl.formatMessage(messages.domain_blocks), to: '/domain_blocks' });
-    menu.push({ text: intl.formatMessage(messages.filters), href: '/filters' });
-    menu.push(null);
+    // menu.push({ text: intl.formatMessage(messages.follow_requests), to: '/follow_requests' });
+    // menu.push({ text: intl.formatMessage(messages.favourites), to: '/favourites' });
+    // menu.push({ text: intl.formatMessage(messages.lists), to: '/lists' });
+    // menu.push(null);
+    // menu.push({ text: intl.formatMessage(messages.mutes), to: '/mutes' });
+    // menu.push({ text: intl.formatMessage(messages.blocks), to: '/blocks' });
+    // menu.push({ text: intl.formatMessage(messages.domain_blocks), to: '/domain_blocks' });
+    // menu.push({ text: intl.formatMessage(messages.filters), href: '/filters' });
+    // menu.push(null);
     menu.push({ text: intl.formatMessage(messages.logout), href: '/auth/sign_out', target: null, method: 'delete' });
 
     return (

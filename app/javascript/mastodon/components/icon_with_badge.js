@@ -6,7 +6,9 @@ const formatNumber = num => num > 40 ? '40+' : num;
 
 const IconWithBadge = ({ id, count, className }) => (
   <i className='icon-with-badge'>
-    <Icon id={id} fixedWidth className={className} />
+    {/*<Icon id={id} fixedWidth className={className} />*/}
+    
+    <span className="ec ec-bell"></span>
     {count > 0 && <i className='icon-with-badge__badge'>{formatNumber(count)}</i>}
   </i>
 );

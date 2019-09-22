@@ -7,6 +7,7 @@ import StatusContent from '../../../components/status_content';
 import MediaGallery from '../../../components/media_gallery';
 import { Link } from 'react-router-dom';
 import { FormattedDate, FormattedNumber } from 'react-intl';
+import RelativeTimestamp from './../../../components/relative_timestamp';
 import Card from './card';
 import ImmutablePureComponent from 'react-immutable-pure-component';
 import Video from '../../video';
@@ -207,9 +208,10 @@ export default class DetailedStatus extends ImmutablePureComponent {
           {media}
 
           <div className='detailed-status__meta'>
-            <a className='detailed-status__datetime' href={status.get('url')} target='_blank' rel='noopener'>
-              <FormattedDate value={new Date(status.get('created_at'))} hour12={false} year='numeric' month='short' day='2-digit' hour='2-digit' minute='2-digit' />
-            </a>{applicationLink} · {reblogLink} · {favouriteLink}
+            <span className='detailed-status__datetime' >
+              <RelativeTimestamp timestamp={new Date(status.get('created_at'))} />
+            </span>
+            {/*<span>{applicationLink} · {reblogLink} · {favouriteLink}</span>*/}
           </div>
         </div>
       </div>

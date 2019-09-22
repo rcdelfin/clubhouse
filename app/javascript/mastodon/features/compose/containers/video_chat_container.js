@@ -7,16 +7,18 @@ const messages = defineMessages({
 });
 
 const mapStateToProps = (state, { intl }) => ({
-  label: 'Video Chat',
+  label: 'Add video chat',
   title: intl.formatMessage(messages.video_chat_message),
   ariaControls: 'cw-spoiler-input',
 });
 
 const mapDispatchToProps = dispatch => ({
 
-  // onClick () {
-  // 	debugger
-  // },
+  onClick () {
+  	debugger
+  	
+  	 // onClick={this.addVideoLink}
+  },
 
 });
 

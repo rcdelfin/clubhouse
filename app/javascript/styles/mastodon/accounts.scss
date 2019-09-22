@@ -4,6 +4,7 @@
     text-decoration: none;
     color: inherit;
     box-shadow: 0 0 15px rgba($base-shadow-color, 0.2);
+    border-radius: 4px 4px 0 0;
 
     @media screen and (max-width: $no-gap-breakpoint) {
       box-shadow: none;
@@ -21,7 +22,6 @@
   &__img {
     height: 130px;
     position: relative;
-    background: darken($ui-base-color, 12%);
     border-radius: 4px 4px 0 0;
 
     img {

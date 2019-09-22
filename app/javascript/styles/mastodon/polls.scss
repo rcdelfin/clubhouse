@@ -1,5 +1,5 @@
 .poll {
-  margin-top: 16px;
+  margin-top: 8px;
   font-size: 14px;
 
   li {
@@ -18,7 +18,8 @@
     background: darken($ui-primary-color, 14%);
 
     &.leading {
-      background: $ui-highlight-color;
+      background: #fff;
+      border: 1px solid #ddd;
     }
   }
 
@@ -94,7 +95,6 @@
   }
 
   &__number {
-    display: inline-block;
     width: 36px;
     font-weight: 700;
     padding: 0 10px;
@@ -102,9 +102,6 @@
   }
 
   &__footer {
-    padding-top: 6px;
-    padding-bottom: 5px;
-    color: $dark-text-color;
   }
 
   &__link {
@@ -113,7 +110,6 @@
     padding: 0;
     margin: 0;
     border: 0;
-    color: $dark-text-color;
     text-decoration: underline;
     font-size: inherit;
 
@@ -160,9 +156,8 @@
     padding: 6px 10px;
     height: auto;
     line-height: inherit;
-    color: $action-button-color;
-    border-color: $action-button-color;
     margin-right: 5px;
+    border: 1px solid #ddd;
   }
 
   li {
@@ -186,7 +181,7 @@
     outline: 0;
     font-family: inherit;
     background: $simple-background-color url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14.933 18.467' height='19.698' width='15.929'><path d='M3.467 14.967l-3.393-3.5H14.86l-3.392 3.5c-1.866 1.925-3.666 3.5-4 3.5-.335 0-2.135-1.575-4-3.5zm.266-11.234L7.467 0 11.2 3.733l3.733 3.734H0l3.733-3.734z' fill='#{hex-color(darken($simple-background-color, 14%))}'/></svg>") no-repeat right 8px center / auto 16px;
-    border: 1px solid darken($simple-background-color, 14%);
+    border: 1px solid #ddd;
     border-radius: 4px;
     padding: 6px 10px;
     padding-right: 30px;

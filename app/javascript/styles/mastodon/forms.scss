@@ -228,9 +228,7 @@ code {
 
   .fields-row {
     display: flex;
-    margin: 0 -10px;
-    padding-top: 5px;
-    margin-bottom: 25px;
+    margin: 16px -10px;
 
     .input {
       max-width: none;
@@ -314,14 +312,13 @@ code {
   textarea {
     box-sizing: border-box;
     font-size: 16px;
-    color: $primary-text-color;
     display: block;
     width: 100%;
     outline: 0;
     font-family: inherit;
     resize: vertical;
-    background: darken($ui-base-color, 10%);
-    border: 1px solid darken($ui-base-color, 14%);
+    background: #fff;
+    border: 1px solid #ddd;
     border-radius: 4px;
     padding: 10px;
 
@@ -377,7 +374,6 @@ code {
   }
 
   .actions {
-    margin-top: 16px;
     display: flex;
 
     &.actions--top {
@@ -396,8 +392,7 @@ code {
     color: $white; //$primary-text-color;
     font-size: 14px;
     line-height: inherit;
-    height: 40px;
-    padding: 12px 18px;
+    padding: 8px 16px;
     text-decoration: none;
     text-align: center;
     box-sizing: border-box;
@@ -823,8 +818,8 @@ code {
 }
 
 .input-copy {
-  background: darken($ui-base-color, 10%);
-  border: 1px solid darken($ui-base-color, 14%);
+  background: #fff;
+  border: 1px solid #ddd;
   border-radius: 4px;
   display: flex;
   align-items: center;

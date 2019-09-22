@@ -7,6 +7,7 @@ $small-breakpoint: 960px;
 body {
   background: $white;
   border: 24px solid $white;
+  min-height: 100vh;
 }
 
 .container {

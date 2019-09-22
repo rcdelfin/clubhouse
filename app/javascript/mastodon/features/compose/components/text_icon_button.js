@@ -20,9 +20,11 @@ export default class TextIconButton extends React.PureComponent {
     const { label, title, active, ariaControls } = this.props;
 
     return (
-      <button title={title} aria-label={title} className={`text-icon-button ${active ? 'active' : ''}`} aria-expanded={active} onClick={this.handleClick} aria-controls={ariaControls}>
-        {label}
-      </button>
+      <div>
+        <label>
+          <span className="ec ec-selfie"></span> {label}
+        </label>
+      </div>
     );
   }
 

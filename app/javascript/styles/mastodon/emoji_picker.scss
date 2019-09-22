@@ -21,7 +21,7 @@
     border-bottom-width: 1px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    background: $ui-secondary-color;
+    background: #fafafa;
   }
 
   &:last-child {
@@ -36,7 +36,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0 6px;
-  color: $lighter-text-color;
+  color: rgba(0, 0, 0, .5);
   line-height: 0;
 }
 

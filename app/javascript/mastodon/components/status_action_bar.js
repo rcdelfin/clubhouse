@@ -35,12 +35,10 @@ const messages = defineMessages({
 });
 
 const obfuscatedCount = count => {
-  if (count < 0) {
-    return 0;
-  } else if (count <= 1) {
-    return count;
+  if (count < 1) {
+    return 'Reply to Toot';
   } else {
-    return '1+';
+    return 'Reply to ' + count + ' Toots';
   }
 };
 
@@ -100,13 +98,13 @@ class StatusActionBar extends ImmutablePureComponent {
     }
   }
 
-  handleReblogClick = e => {
-    if (me) {
-      this.props.onReblog(this.props.status, e);
-    } else {
-      this._openInteractionDialog('reblog');
-    }
-  }
+  // handleReblogClick = e => {
+  //   if (me) {
+  //     this.props.onReblog(this.props.status, e);
+  //   } else {
+  //     this._openInteractionDialog('reblog');
+  //   }
+  // }
 
   _openInteractionDialog = type => {
     window.open(`/interact/${this.props.status.get('id')}?type=${type}`, 'mastodon-intent', 'width=445,height=600,resizable=no,menubar=no,status=no,scrollbars=yes');
@@ -183,40 +181,40 @@ class StatusActionBar extends ImmutablePureComponent {
     let replyIcon;
     let replyTitle;
 
-    menu.push({ text: intl.formatMessage(messages.open), action: this.handleOpen });
+    // menu.push({ text: intl.formatMessage(messages.open), action: this.handleOpen });
 
-    if (publicStatus) {
-      menu.push({ text: intl.formatMessage(messages.copy), action: this.handleCopy });
-    }
+    // if (publicStatus) {
+    //   menu.push({ text: intl.formatMessage(messages.copy), action: this.handleCopy });
+    // }
 
-    menu.push(null);
+    // menu.push(null);
 
-    if (status.getIn(['account', 'id']) === me || withDismiss) {
-      menu.push({ text: intl.formatMessage(mutingConversation ? messages.unmuteConversation : messages.muteConversation), action: this.handleConversationMuteClick });
-      menu.push(null);
-    }
+    // if (status.getIn(['account', 'id']) === me || withDismiss) {
+    //   menu.push({ text: intl.formatMessage(mutingConversation ? messages.unmuteConversation : messages.muteConversation), action: this.handleConversationMuteClick });
+    //   menu.push(null);
+    // }
 
     if (status.getIn(['account', 'id']) === me) {
-      if (publicStatus) {
-        menu.push({ text: intl.formatMessage(status.get('pinned') ? messages.unpin : messages.pin), action: this.handlePinClick });
-      } else {
-        if (status.get('visibility') === 'private') {
-          menu.push({ text: intl.formatMessage(status.get('reblogged') ? messages.cancel_reblog_private : messages.reblog_private), action: this.handleReblogClick });
-        }
-      }
+      // if (publicStatus) {
+      //   menu.push({ text: intl.formatMessage(status.get('pinned') ? messages.unpin : messages.pin), action: this.handlePinClick });
+      // } else {
+      //   if (status.get('visibility') === 'private') {
+      //     menu.push({ text: intl.formatMessage(status.get('reblogged') ? messages.cancel_reblog_private : messages.reblog_private), action: this.handleReblogClick });
+      //   }
+      // }
 
       menu.push({ text: intl.formatMessage(messages.delete), action: this.handleDeleteClick });
       menu.push({ text: intl.formatMessage(messages.redraft), action: this.handleRedraftClick });
     } else {
       menu.push({ text: intl.formatMessage(messages.mention, { name: status.getIn(['account', 'username']) }), action: this.handleMentionClick });
       menu.push({ text: intl.formatMessage(messages.direct, { name: status.getIn(['account', 'username']) }), action: this.handleDirectClick });
-      menu.push(null);
+      // menu.push(null);
       menu.push({ text: intl.formatMessage(messages.mute, { name: status.getIn(['account', 'username']) }), action: this.handleMuteClick });
       menu.push({ text: intl.formatMessage(messages.block, { name: status.getIn(['account', 'username']) }), action: this.handleBlockClick });
       menu.push({ text: intl.formatMessage(messages.report, { name: status.getIn(['account', 'username']) }), action: this.handleReport });
 
       if (isStaff) {
-        menu.push(null);
+        // menu.push(null);
         menu.push({ text: intl.formatMessage(messages.admin_account, { name: status.getIn(['account', 'username']) }), href: `/admin/accounts/${status.getIn(['account', 'id'])}` });
         menu.push({ text: intl.formatMessage(messages.admin_status), href: `/admin/accounts/${status.getIn(['account', 'id'])}/statuses/${status.get('id')}` });
       }
@@ -242,14 +240,18 @@ class StatusActionBar extends ImmutablePureComponent {
 
     return (
       <div className='status__action-bar'>
-        <div className='status__action-bar__counter'><IconButton className='status__action-bar-button' title={replyTitle} icon={status.get('in_reply_to_account_id') === status.getIn(['account', 'id']) ? 'reply' : replyIcon} onClick={this.handleReplyClick} /><span className='status__action-bar__counter__label' >{obfuscatedCount(status.get('replies_count'))}</span></div>
-        <IconButton className='status__action-bar-button' disabled={!publicStatus} active={status.get('reblogged')} pressed={status.get('reblogged')} title={!publicStatus ? intl.formatMessage(messages.cannot_reblog) : intl.formatMessage(messages.reblog)} icon={reblogIcon} onClick={this.handleReblogClick} />
-        <IconButton className='status__action-bar-button star-icon' animate active={status.get('favourited')} pressed={status.get('favourited')} title={intl.formatMessage(messages.favourite)} icon='star' onClick={this.handleFavouriteClick} />
-        {shareButton}
-
-        <div className='status__action-bar-dropdown'>
-          <DropdownMenuContainer disabled={anonymousAccess} status={status} items={menu} icon='ellipsis-h' size={18} direction='right' title={intl.formatMessage(messages.more)} />
+        <div className='status__action-bar__counter'>
+          <div className='status__action-bar-button' onClick={this.handleReplyClick}>
+            <span className="ec ec-mega"></span> {obfuscatedCount(status.get('replies_count'))}
+          </div>
         </div>
+        {/*<IconButton className='status__action-bar-button' disabled={!publicStatus} active={status.get('reblogged')} pressed={status.get('reblogged')} title={!publicStatus ? intl.formatMessage(messages.cannot_reblog) : intl.formatMessage(messages.reblog)} icon={reblogIcon} onClick={this.handleReblogClick} />*/}
+        {/*<IconButton className='status__action-bar-button star-icon' animate active={status.get('favourited')} pressed={status.get('favourited')} title={intl.formatMessage(messages.favourite)} icon='star' onClick={this.handleFavouriteClick} />*/}
+        {/*{shareButton}*/}
+
+        {/*<div className='status__action-bar-dropdown'>
+          <DropdownMenuContainer disabled={anonymousAccess} status={status} items={menu} icon='ellipsis' size={18} direction='right' title={intl.formatMessage(messages.more)} />
+        </div>*/}
       </div>
     );
   }

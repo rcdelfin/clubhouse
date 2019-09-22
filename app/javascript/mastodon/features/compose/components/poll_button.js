@@ -38,16 +38,9 @@ class PollButton extends React.PureComponent {
 
     return (
       <div className='compose-form__poll-button'>
-        <IconButton
-          icon='tasks'
-          title={intl.formatMessage(active ? messages.remove_poll : messages.add_poll)}
-          disabled={disabled}
-          onClick={this.handleClick}
-          className={`compose-form__poll-button-icon ${active ? 'active' : ''}`}
-          size={18}
-          inverted
-          style={iconStyle}
-        />
+        <label title={intl.formatMessage(active ? messages.remove_poll : messages.add_poll)} disabled={disabled} onClick={this.handleClick} className={`compose-form__poll-button-icon ${active ? 'active' : ''}`}>
+          <span className="ec ec-ballot-box"></span> Add a pole
+        </label>
       </div>
     );
   }

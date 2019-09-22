@@ -109,9 +109,6 @@ class Compose extends React.PureComponent {
 
             <ComposeFormContainer />
 
-            <div className='drawer__inner__mastodon'>
-              <img alt='' draggable='false' src={mascot || elephantUIPlane} />
-            </div>
           </div>}
 
           <Motion defaultStyle={{ x: isSearchPage ? 0 : -100 }} style={{ x: spring(showSearch || isSearchPage ? 0 : -100, { stiffness: 210, damping: 20 }) }}>

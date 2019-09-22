@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 const MissingIndicator = () => (
   <div className='regeneration-indicator missing-indicator'>
     <div>
-      <div className='regeneration-indicator__figure' />
+      {/*<div className='regeneration-indicator__figure' />*/}
 
       <div className='regeneration-indicator__label'>
         <FormattedMessage id='missing_indicator.label' tagName='strong' defaultMessage='Not found' />

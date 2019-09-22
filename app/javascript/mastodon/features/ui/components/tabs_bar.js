@@ -8,11 +8,11 @@ import Icon from 'mastodon/components/icon';
 import NotificationsCounterIcon from './notifications_counter_icon';
 
 export const links = [
-  <NavLink className='tabs-bar__link' to='/timelines/public/local' data-preview-title-id='column.community' data-preview-icon='users' ><Icon id='users' fixedWidth /><FormattedMessage id='tabs_bar.local_timeline' defaultMessage='Local' /></NavLink>,
+  <NavLink className='tabs-bar__link' to='/timelines/public/local' data-preview-title-id='column.community' data-preview-icon='users' ><span className="ec ec-boy"></span><span className="ec ec-liv"></span><span className="ec ec-girl-brown"></span><FormattedMessage id='tabs_bar.local_timeline' defaultMessage='Local' /></NavLink>,
   <NavLink className='tabs-bar__link' to='/timelines/direct' data-preview-title-id='column.direct' data-preview-icon='envelope' ><Icon id='envelope' fixedWidth /><FormattedMessage id='tabs_bar.direct' defaultMessage='Direct Messages' /></NavLink>,
   <NavLink className='tabs-bar__link' to='/notifications' data-preview-title-id='column.notifications' data-preview-icon='bell' ><NotificationsCounterIcon /><FormattedMessage id='tabs_bar.notifications' defaultMessage='Notifications' /></NavLink>,
   <NavLink className='tabs-bar__link' to='/favourites' data-preview-title-id='column.favourites' data-preview-icon='star' ><Icon id='star' fixedWidth /><FormattedMessage id='tabs_bar.favourites' defaultMessage='Favourites' /></NavLink>,
-  <NavLink className='tabs-bar__link optional' to='/search' data-preview-title-id='tabs_bar.search' data-preview-icon='bell' ><Icon id='search' fixedWidth /><FormattedMessage id='tabs_bar.search' defaultMessage='Search' /></NavLink>,
+  <NavLink className='tabs-bar__link optional' to='/search' data-preview-title-id='tabs_bar.search' data-preview-icon='bell' ><span className="ec ec-mag"></span><FormattedMessage id='tabs_bar.search' defaultMessage='Search' /></NavLink>,
 ];
 
 // <NavLink className='tabs-bar__link' style={{ flexGrow: '0', flexBasis: '30px' }} to='/getting-started' data-preview-title-id='getting_started.heading' data-preview-icon='bars' ><Icon id='bars' fixedWidth /></NavLink>
@@ -75,9 +75,14 @@ class TabsBar extends React.PureComponent {
     const { intl: { formatMessage } } = this.props;
 
     return (
-      <nav className='tabs-bar' ref={this.setRef}>
-        {links.map(link => React.cloneElement(link, { key: link.props.to, onClick: this.handleClick, 'aria-label': formatMessage({ id: link.props['data-preview-title-id'] }) }))}
-      </nav>
+      <div className="tabs-bar-holder">
+        <svg className="logo" width="250" height="125" viewBox="0 0 250 125" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M250 0C250 69.0356 194.036 125 125 125C55.9644 125 0 69.0356 0 0C0 0 51.5318 8.66592e-06 120.567 8.66592e-06C189.603 8.66592e-06 250 0 250 0Z" fill="white"/>
+        </svg>
+        <nav className='tabs-bar' ref={this.setRef}>
+          {links.map(link => React.cloneElement(link, { key: link.props.to, onClick: this.handleClick, 'aria-label': formatMessage({ id: link.props['data-preview-title-id'] }) }))}
+        </nav>
+      </div>
     );
   }
 

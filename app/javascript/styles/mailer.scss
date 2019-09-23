@@ -9,6 +9,7 @@ div {
 
 html,
 body {
+  background: #fff;
   width: 100% !important;
   min-width: 100%;
   margin: 0;
@@ -31,7 +32,7 @@ a {
   &:visited,
   span {
     text-decoration: none;
-    color: $ui-highlight-color;
+    color: $black;
   }
 
   #outlook & {
@@ -75,17 +76,17 @@ td {
 }
 
 .email-start {
-  padding-top: 32px;
+  padding-top: 8px;
 }
 
 .email-end {
-  padding-bottom: 32px;
+  padding-bottom: 8px;
 }
 
 .email-body,
 html,
 body {
-  background-color: lighten($ui-base-color, 4%);
+  background-color: #fff;
 }
 
 .email-container,
@@ -112,8 +113,7 @@ body {
 }
 
 .column-cell {
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding: 8px;
   vertical-align: top;
 
   &.button-cell {
@@ -204,10 +204,10 @@ h3,
 h4,
 h5,
 h6 {
-  color: $ui-secondary-color;
+  color: $black;
   margin-left: 0;
   margin-right: 0;
-  margin-top: 20px;
+  margin-top: 8px;
   margin-bottom: 8px;
   padding: 0;
   font-weight: 500;
@@ -243,7 +243,8 @@ h5 {
 
 .input {
   td {
-    background: darken($ui-base-color, 8%);
+    background: #fafafa;
+    border: 1px solid #ddd;
     border-radius: 4px;
     padding: 16px;
     line-height: 20px;
@@ -266,16 +267,15 @@ h5 {
 }
 
 .content-cell {
-  background-color: darken($ui-base-color, 4%);
+  background-color: #fafafa;
 
   &.darker {
-    background-color: darken($ui-base-color, 8%);
+    background-color: #fafafa;
   }
 }
 
 .hero {
-  background-color: $ui-base-color;
-  padding-top: 20px;
+  background-color: #fafafa;
 }
 
 .hero-with-button {
@@ -292,28 +292,28 @@ h5 {
 
 .header {
   border-radius: 5px 5px 0 0;
-  background-color: darken($ui-base-color, 8%);
+  background-color: #ffeb3b;
 
   .column-cell {
     text-align: center;
-    padding-top: 20px;
-    padding-bottom: 8px;
+    margin-bottom: 16px;
+    padding: 16px;
   }
 }
 
 .content-start {
-  padding-top: 32px;
+  padding-top: 16px;
 }
 
 .content-end {
   border-radius: 0 0 5px 5px;
-  padding-top: 16px;
+  padding-top: 32px;
 }
 
 .footer {
   .column-cell,
   p {
-    color: lighten($ui-base-color, 34%);
+    color: $black;
   }
 
   p {
@@ -326,7 +326,7 @@ h5 {
   }
 
   a {
-    color: lighten($ui-base-color, 34%);
+    color: $black;
     text-decoration: underline;
   }
 
@@ -337,7 +337,8 @@ h5 {
 
 .logo {
   position: relative;
-  left: -4px;
+  height: 48px;
+  width: 48px;
 }
 
 .button {
@@ -356,7 +357,7 @@ h5 {
 
     a,
     a span {
-      color: $primary-text-color;
+      color: $black;
       display: block !important;
       text-align: center !important;
       vertical-align: top !important;
@@ -374,7 +375,7 @@ h5 {
     td {
       border-radius: 4px;
       font-size: 14px;
-      padding: 8px 16px;
+      padding: 16px;
 
       a {
         padding: 5px 16px !important;
@@ -389,7 +390,10 @@ h5 {
 }
 
 .button-primary {
-  background-color: darken($ui-highlight-color, 3%);
+  background-color: #22CCDF;
+  a, span {
+    color: #fff !important;
+  }
 }
 
 .text-center {
@@ -414,26 +418,27 @@ h5 {
 }
 
 .hero-icon {
-  width: 64px;
+  width: 32px;
+  margin-top: 32px;
 
   td {
     text-align: center;
     vertical-align: middle;
     line-height: 100%;
     mso-line-height-rule: exactly;
-    padding: 16px;
+    padding: 8px;
     border-radius: 80px;
-    background: $success-green;
+    background: #2196F3;
   }
 
   &.alert-icon td {
-    background: $error-red;
+    background: #F44336;
   }
 
   img {
-    max-width: 32px;
-    width: 32px;
-    height: 32px;
+    max-width: 18px;
+    width: 18px;
+    height: 18px;
     display: block;
     line-height: 100%;
   }
@@ -450,7 +455,7 @@ h5 {
     overflow: hidden;
     height: 2px;
     background-color: transparent !important;
-    border-top: 1px solid lighten($ui-base-color, 8%);
+    border-top: 1px solid #ddd;
   }
 }
 
@@ -464,7 +469,7 @@ h5 {
     }
 
     bdi {
-      color: $white;
+      color: $black;
       font-size: 16px;
       display: block;
       font-weight: 500;
@@ -482,23 +487,23 @@ h5 {
   }
 
   p {
-    font-size: 19px;
-    margin-bottom: 20px;
+    font-size: 14px;
+    margin-bottom: 8px;
 
     &.status-footer {
-      color: lighten($ui-base-color, 26%);
+      color: $black;
       font-size: 14px;
       margin-bottom: 0;
 
       a {
-        color: lighten($ui-base-color, 26%);
+        color: $black;
       }
     }
   }
 }
 
 .border-top {
-  border-top: 1px solid lighten($ui-base-color, 8%);
+  border-top: 1px solid #fafafa;
 }
 
 ul {

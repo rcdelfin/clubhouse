@@ -66,7 +66,7 @@ class NotificationMailer < ApplicationMailer
   end
 
   def digest(recipient, **opts)
-    return if recipient.user.disabled?
+    # return if recipient.user.disabled?
 
     @me                  = recipient
     @since               = opts[:since] || [@me.user.last_emailed_at, (@me.user.current_sign_in_at + 1.day)].compact.max

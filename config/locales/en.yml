@@ -9,7 +9,7 @@ en:
     administered_by: 'Administered by:'
     api: API
     apps: Mobile apps
-    apps_platforms: Use Mastodon from iOS, Android and other platforms
+    apps_platforms: Use clubhouse on the web
     browse_directory: Browse a profile directory and filter by interests
     browse_public_posts: Browse a live stream of public posts on clubhouse
     contact: Contact
@@ -1016,9 +1016,9 @@ en:
       <p>Originally adapted from the <a href="https://github.com/discourse/discourse">Discourse privacy policy</a>.</p>
     title: "%{instance} Terms of Service and Privacy Policy"
   themes:
-    contrast: Mastodon (High contrast)
-    default: Mastodon (Dark)
-    mastodon-light: Mastodon (Light)
+    contrast: clubhouse (High contrast)
+    default: clubhouse (Dark)
+    mastodon-light: clubhouse (Light)
   time:
     formats:
       default: "%b %d, %Y, %H:%M"
@@ -1074,7 +1074,7 @@ en:
       tip_federated_timeline: The federated timeline is a firehose view of the clubhouse network. But it only includes people your neighbours are subscribed to, so it's not complete.
       tip_following: You follow your server's admin(s) by default. To find more interesting people, check the local and federated timelines.
       tip_local_timeline: The local timeline is a firehose view of people on %{instance}. These are your immediate neighbours!
-      tip_mobile_webapp: If your mobile browser offers you to add Masclubhousetodon to your homescreen, you can receive push notifications. It acts like a native app in many ways!
+      tip_mobile_webapp: If your mobile browser offers you to add clubhouse to your homescreen, you can receive push notifications. It acts like a native app in many ways!
       tips: Tips
       title: Welcome aboard, %{name}!
   users:

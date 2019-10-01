@@ -1913,6 +1913,12 @@ a.account__display-name {
   }
 }
 
+article .status__wrapper {
+  padding: 0;
+  border-bottom: none;
+  border-right: none;
+}
+
 .react-swipeable-view-container {
   &,
   .columns-area,

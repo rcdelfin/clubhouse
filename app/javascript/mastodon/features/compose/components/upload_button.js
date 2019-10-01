@@ -66,7 +66,8 @@ class UploadButton extends ImmutablePureComponent {
         <label title={intl.formatMessage(messages.upload, { formats: SUPPORTED_FORMATS })} disabled={disabled} onClick={this.handleClick} className='compose-form__upload-button-icon' >
           <span className="ec ec-framed-picture"></span> Add a photo
           <span style={{ display: 'none' }}>{intl.formatMessage(messages.upload, { formats: SUPPORTED_FORMATS })}</span>
-          <input
+        </label>
+        <input
             key={resetFileKey}
             ref={this.setRef}
             type='file'
@@ -76,7 +77,6 @@ class UploadButton extends ImmutablePureComponent {
             disabled={disabled}
             style={{ display: 'none' }}
           />
-        </label>
       </div>
     );
   }

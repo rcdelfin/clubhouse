@@ -57,7 +57,7 @@ module ApplicationHelper
   end
 
   def title
-    Rails.env.production? ? site_title : "#{site_title} (Dev)"
+    Rails.env.production? ? 'clubhouse' : "clubhouse (Dev)"
   end
 
   def class_for_scope(scope)

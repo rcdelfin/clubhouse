@@ -10,11 +10,11 @@ class ManifestSerializer < ActiveModel::Serializer
              :share_target
 
   def name
-    object.site_title
+    "clubhouse"
   end
 
   def short_name
-    object.site_title
+    "clubhouse"
   end
 
   def description

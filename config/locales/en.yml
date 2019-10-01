@@ -452,7 +452,6 @@ en:
       site_terms:
         desc_html: You can write your own privacy policy, terms of service or other legalese. You can use HTML tags
         title: Custom terms of service
-      site_title: clubhouse
       spam_check_enabled:
         desc_html: clubhouse can auto-silence and auto-report accounts based on measures such as detecting accounts who send repeated unsolicited messages. There may be false positives.
         title: Anti-spam

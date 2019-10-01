@@ -11,10 +11,11 @@ export const links = [
   <NavLink className='tabs-bar__link' to='/timelines/public/local' data-preview-title-id='column.community' data-preview-icon='users' ><span className="ec ec-boy"></span><span className="ec ec-liv"></span><span className="ec ec-girl-brown"></span><FormattedMessage id='tabs_bar.local_timeline' defaultMessage='Local' /></NavLink>,
   <NavLink className='tabs-bar__link' to='/timelines/direct' data-preview-title-id='column.direct' data-preview-icon='envelope' ><Icon id='envelope' fixedWidth /><FormattedMessage id='tabs_bar.direct' defaultMessage='Direct Messages' /></NavLink>,
   <NavLink className='tabs-bar__link' to='/notifications' data-preview-title-id='column.notifications' data-preview-icon='bell' ><NotificationsCounterIcon /><FormattedMessage id='tabs_bar.notifications' defaultMessage='Notifications' /></NavLink>,
-  <NavLink className='tabs-bar__link' to='/favourites' data-preview-title-id='column.favourites' data-preview-icon='star' ><Icon id='star' fixedWidth /><FormattedMessage id='tabs_bar.favourites' defaultMessage='Favourites' /></NavLink>,
-  <NavLink className='tabs-bar__link optional' to='/search' data-preview-title-id='tabs_bar.search' data-preview-icon='bell' ><span className="ec ec-mag"></span><FormattedMessage id='tabs_bar.search' defaultMessage='Search' /></NavLink>,
+  <NavLink className='tabs-bar__link' to='/favourites' data-preview-title-id='column.favourites' data-preview-icon='star' ><Icon id='star' fixedWidth /><FormattedMessage id='tabs_bar.favourites' defaultMessage='Favourites' /></NavLink>
 ];
 
+
+// <NavLink className='tabs-bar__link optional' to='/search' data-preview-title-id='tabs_bar.search' data-preview-icon='bell' ><span className="ec ec-mag"></span><FormattedMessage id='tabs_bar.search' defaultMessage='Search' /></NavLink>,
 // <NavLink className='tabs-bar__link' style={{ flexGrow: '0', flexBasis: '30px' }} to='/getting-started' data-preview-title-id='getting_started.heading' data-preview-icon='bars' ><Icon id='bars' fixedWidth /></NavLink>
 
 

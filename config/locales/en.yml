@@ -2,7 +2,7 @@
 en:
   about:
     about_hashtag_html: These are public toots tagged with <strong>#%{hashtag}</strong>. You can interact with them if you have an account anywhere in the fediverse.
-    about_mastodon_html: clubhouse is a kid friendly social network.
+    about_mastodon_html: clubhouse is place for kids and their friends online.
     about_this: About
     active_count_after: active
     active_footnote: Monthly Active Users (MAU)
@@ -448,11 +448,11 @@ en:
         title: Custom extended information
       site_short_description:
         desc_html: Displayed in sidebar and meta tags. Describe what clubhouse is and what makes this server special in a single paragraph.
-        title: Short server description
+        title: clubhouse
       site_terms:
         desc_html: You can write your own privacy policy, terms of service or other legalese. You can use HTML tags
         title: Custom terms of service
-      site_title: Server name
+      site_title: clubhouse
       spam_check_enabled:
         desc_html: clubhouse can auto-silence and auto-report accounts based on measures such as detecting accounts who send repeated unsolicited messages. There may be false positives.
         title: Anti-spam

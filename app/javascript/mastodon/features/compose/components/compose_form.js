@@ -258,7 +258,8 @@ class ComposeForm extends ImmutablePureComponent {
 
         <div className='compose-form__buttons-wrapper'>
           <div className='compose-form__buttons'>
-            <UploadButtonContainer />
+            <UploadButtonContainer type="photo" emoji="framed-picture" />
+            <UploadButtonContainer type="video" emoji="clapper" />
             <PollButtonContainer />
             <div onClick={this.addVideoLink}><VideoChatContainer /></div>
             {/*<PrivacyDropdownContainer />*/}
